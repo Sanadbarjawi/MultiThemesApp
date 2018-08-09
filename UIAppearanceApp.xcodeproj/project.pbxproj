@@ -12,6 +12,8 @@
 		C923AB3E211AEA3E00BDD545 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C923AB3C211AEA3E00BDD545 /* Main.storyboard */; };
 		C923AB40211AEA4000BDD545 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C923AB3F211AEA4000BDD545 /* Assets.xcassets */; };
 		C923AB43211AEA4000BDD545 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C923AB41211AEA4000BDD545 /* LaunchScreen.storyboard */; };
+		C923AB4B211AF1B000BDD545 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C923AB4A211AF1B000BDD545 /* Theme.swift */; };
+		C923AB4D211B17B000BDD545 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C923AB4C211B17B000BDD545 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		C923AB3F211AEA4000BDD545 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C923AB42211AEA4000BDD545 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C923AB44211AEA4000BDD545 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C923AB4A211AF1B000BDD545 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		C923AB4C211B17B000BDD545 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				C923AB3F211AEA4000BDD545 /* Assets.xcassets */,
 				C923AB41211AEA4000BDD545 /* LaunchScreen.storyboard */,
 				C923AB44211AEA4000BDD545 /* Info.plist */,
+				C923AB4A211AF1B000BDD545 /* Theme.swift */,
+				C923AB4C211B17B000BDD545 /* Extensions.swift */,
 			);
 			path = UIAppearanceApp;
 			sourceTree = "<group>";
@@ -135,8 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C923AB4B211AF1B000BDD545 /* Theme.swift in Sources */,
 				C923AB3B211AEA3E00BDD545 /* ViewController.swift in Sources */,
 				C923AB39211AEA3E00BDD545 /* AppDelegate.swift in Sources */,
+				C923AB4D211B17B000BDD545 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +289,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A7HJR6DLGG;
 				INFOPLIST_FILE = UIAppearanceApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -298,6 +307,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A7HJR6DLGG;
 				INFOPLIST_FILE = UIAppearanceApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
