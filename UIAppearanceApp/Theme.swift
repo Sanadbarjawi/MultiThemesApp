@@ -17,16 +17,15 @@ enum Theme: Int {
     
     static var current: Theme{
         let storedTheme = UserDefaults.standard.integer(forKey: Keys.selectedTheme)
-        
         return Theme(rawValue: storedTheme) ?? .dayTheme
     }
-
+    
     var navbarColor: UIColor{
         switch self {
         case .nightTheme:
             return UIColor.darkGray
         case .dayTheme:
-            return UIColor(red: 255.0/255.0, green: 115.0/255.0, blue: 50.0/255.0, alpha: 1.0)
+            return UIColor.blue
         }
     }
     
@@ -42,9 +41,27 @@ enum Theme: Int {
     var buttonTitleColor: UIColor{
         switch self {
         case .nightTheme:
+            return UIColor.black
+        case .dayTheme:
+            return UIColor.white
+        }
+    }
+    
+    var buttonBackgroundColor: UIColor{
+        switch self {
+        case .nightTheme:
             return UIColor.white
         case .dayTheme:
             return UIColor.black
+        }
+    }
+    
+    var buttonCornerRadius: CGFloat{
+        switch self {
+        case .nightTheme:
+            return 0.0
+        case .dayTheme:
+            return 12.0
         }
     }
     
@@ -56,21 +73,49 @@ enum Theme: Int {
             return UIColor.darkGray
         }
     }
-
     
     func apply(){
-        UserDefaults.standard.set(0, forKey: Keys.selectedTheme)//0 = dayTheme, 1 = nightTheme
-        let proxyButton = UIButton.appearance()
+        UserDefaults.standard.set(1, forKey: Keys.selectedTheme)//0 = dayTheme, 1 = nightTheme
         let proxyNavbar = UINavigationBar.appearance()
-        let proxyNavbarButton = UIButton.appearance(whenContainedInInstancesOf: [UINavigationBar.self])
-        let proxyTextfield = UITextField.appearance()
-        
-        proxyButton.setTitleColor(buttonTitleColor, for: .normal)
-        proxyButton.backgroundColor = backGroundColor
         proxyNavbar.backgroundColor = navbarColor
-        proxyNavbarButton.backgroundColor = UIColor.clear
         proxyNavbar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
-        proxyTextfield.backgroundColor = textFieldColor
+    }
+}
+//MARK: - Designable Classes(Button,View)
+///CustomView designable Class
+@IBDesignable
+class CustomView: UIView {
+    @IBInspectable var viewColor:UIColor? = nil
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.backgroundColor = viewColor ?? Theme.current.backGroundColor
+    }
+}
+
+///CustomView designable Class
+@IBDesignable
+class CustomButton: UIButton {
+    @IBInspectable var buttonColor:UIColor? = nil
+    @IBInspectable var buttonTitleColor:UIColor? = nil
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            if layer.cornerRadius == 0.0 {
+                return Theme.current.buttonCornerRadius
+            }else{
+                return layer.cornerRadius
+            }
+        }
+        set {
+            layer.cornerRadius = newValue
+        }
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.backgroundColor = buttonColor ?? Theme.current.buttonBackgroundColor
+        self.setTitleColor(buttonTitleColor ?? Theme.current.buttonTitleColor, for: .normal)
+        self.layer.cornerRadius = cornerRadius
+        
     }
 }
 
